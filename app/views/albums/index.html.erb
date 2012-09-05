@@ -14,9 +14,15 @@
     <% @albums.each do |album| %>
       <li class="span2">
         <div class="thumbnail well">
-          <% album.images.find(1) do |image| %>
-            <p><%= image_tag(image.photo(:thumb)) %></p>
-          <% end %> 
+
+          <% if album.images.empty? %>
+            <p><%= image_tag ("http://lorempixel.com/100/100/nature/") %></p>
+          <% else %>
+              <% album.images.find(1) do |image| %>
+                <p><%= image_tag(image.photo(:thumb)) %></p>
+              <% end %>
+          <% end %>
+
             <p><%= link_to album.name, album_path(album) %></p>
             <p><%= album.description %></p>
             <p>          <%= link_to t('.edit', :default => t("helpers.links.edit")),

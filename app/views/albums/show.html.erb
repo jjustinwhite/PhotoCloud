@@ -4,6 +4,10 @@
 </div>
 
 <ul class="thumbnails">
+
+  <% if @album.images.empty? %>
+    <h2>No Images In Current Album</h2>
+  <% else %>
   <% @album.images.each do |image| %>
         <li class="span2">
           <div class="thumbnail well center">
@@ -11,6 +15,7 @@
             <p><%= image.name %>
           </div>
         </li>
+  <% end %>
   <% end %>
 </ul>
 
