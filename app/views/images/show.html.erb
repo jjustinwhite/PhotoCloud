@@ -1,23 +1,10 @@
 <%- model_class = Image -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => @image.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @image.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_file_name) %>:</strong></dt>
-  <dd><%= @image.photo_file_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_content_type) %>:</strong></dt>
-  <dd><%= @image.photo_content_type %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_file_size) %>:</strong></dt>
-  <dd><%= @image.photo_file_size %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo_updated_at) %>:</strong></dt>
-  <dd><%= @image.photo_updated_at %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:album_id) %>:</strong></dt>
-  <dd><%= @image.album_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag @image.photo.url(:medium) %></dd>
+  <dd><%= image_tag(@image.photo.url, :class => "img-rounded") %></dd>
 </dl>
 
 

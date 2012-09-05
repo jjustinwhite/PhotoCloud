@@ -1,4 +1,5 @@
 PhotoCloud::Application.routes.draw do
+
   resources :albums
 
   get "welcome/index"
