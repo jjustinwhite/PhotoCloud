@@ -1,5 +1,14 @@
 PhotoCloud::Application.routes.draw do
 
+  get "session/sign_in"
+
+  get "session/sign_out"
+
+  post "session/sign_in"
+  post "session/sign_out"
+
+  resources :users
+
   resources :albums
 
   get "welcome/index"

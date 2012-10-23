@@ -12,6 +12,18 @@
 </head>
 <body>
 
+
+<% if not session[:user_id].nil? then %>
+  <p>
+    User <%= display_email(session[:user_id]) %> is signed in.
+    <%= link_to 'Sign out', session_sign_out_path %>
+  </p>
+<% else %>
+  <p><%= link_to 'Sign In', session_sign_in_path %> | <%= link_to 'Sign Up', new_user_path %></p>
+<% end %>
+<hr />
+
+
 <!--START==============NAV BAR============================-->
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
