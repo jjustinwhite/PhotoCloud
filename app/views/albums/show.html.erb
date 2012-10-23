@@ -11,8 +11,9 @@
   <% @album.images.each do |image| %>
         <li class="span2">
           <div class="thumbnail well center">
-            <p><%= link_to image_tag(image.photo(:medium)), image_path(image) %></p>
-            <p><%= image.name %>
+            <p><%= link_to image_tag(image.photo(:medium), :height => '120'), image_path(image) %></p>
+            <p><%= image.name %></p>
+            <p>By: <%= image.user.email %></p>
           </div>
         </li>
   <% end %>

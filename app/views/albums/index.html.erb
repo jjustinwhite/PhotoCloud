@@ -15,7 +15,7 @@
             <p><%= image_tag ("http://lorempixel.com/100/100/nature/") %></p>
           <% else %>
               <% album.images.find(1) do |image| %>
-                <p><%= image_tag(image.photo(:thumb)) %></p>
+                <p><%= image_tag(image.photo(:medium)) %></p>
               <% end %>
           <% end %>
 

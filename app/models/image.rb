@@ -1,6 +1,7 @@
 class Image < ActiveRecord::Base
-  attr_accessible :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :album_id
-  belongs_to :albums
+  attr_accessible :name, :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at, :album_id, :user_id
+  belongs_to :album
+  belongs_to :user
   
     has_attached_file :photo,
       :styles => {
