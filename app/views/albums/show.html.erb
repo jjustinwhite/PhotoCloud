@@ -10,10 +10,11 @@
   <% else %>
   <% @album.images.each do |image| %>
         <li class="span2">
-          <div class="thumbnail well center">
-            <p><%= link_to image_tag(image.photo(:medium), :height => '120'), image_path(image) %></p>
+          
+            <p><%= link_to image_tag(image.photo(:medium), :height => '120', :class => 'img-polaroid'), image_path(image) %></p>
+            <div class="thumbnail well center">
             <p><%= image.name %></p>
-            <p>By: <%= image.user.email %></p>
+            <p>By: <%= image.user.first_name %> <%= image.user.last_name %></p>
           </div>
         </li>
   <% end %>

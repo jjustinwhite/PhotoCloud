@@ -12,16 +12,6 @@
 </head>
 <body>          
 
-<% if not session[:user_id].nil? then %>
-  <p>
-    User <%= display_email(session[:user_id]) %> is signed in.
-    <%= link_to 'Sign out', session_sign_out_path %>
-  </p>
-<% else %>
-  <p><%= link_to 'Sign In', session_sign_in_path %> | <%= link_to 'Sign Up', new_user_path %></p>
-<% end %>
-<hr />
-
 
 <!--START==============NAV BAR============================-->
 <div class="navbar navbar-fixed-top">
@@ -38,6 +28,17 @@
           <li><%= link_to "New Image", new_image_path %></li>
           <li><%= link_to "Albums", albums_path %></li>
         </ul>
+        <ul class="nav pull-right">
+
+          <% if not session[:user_id].nil? then %>
+            <li><%= link_to display_email(session[:user_id]) %></li>
+            <li><%= link_to 'Sign out', session_sign_out_path %></li>
+          <% else %>
+            <li><%= link_to 'Sign In', session_sign_in_path %></li> 
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+          <% end %>
+
+        </ul>
       </div>
     </div>
   </div>
@@ -48,14 +49,8 @@
 <div class="container">
   <div class="row">
     <div class="span9"><%= yield %></div>
-<!--START==============SIDE BAR============================-->
-    <div class="span3">
-      <h2>About Us</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>        
-    </div>
   </div>
 </div>
-<!--END==============SIDE BAR============================-->
 
 </body>
 </html>
